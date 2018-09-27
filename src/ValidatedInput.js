@@ -1,7 +1,7 @@
 import React from 'react';
-import { Input } from 'react-bootstrap';
+import { FormControl } from 'react-bootstrap';
 
-export default class ValidatedInput extends Input {
+export default class ValidatedInput extends FormControl {
     constructor(props) {
         super(props);
 
@@ -11,7 +11,7 @@ export default class ValidatedInput extends Input {
     }
 
     componentWillMount() {
-        if (Input.prototype.componentWillMount) {
+        if (FormControl.prototype.componentWillMount) {
             super.componentWillMount();
         }
 
@@ -19,7 +19,7 @@ export default class ValidatedInput extends Input {
     }
 
     componentWillUnmount() {
-        if (Input.prototype.componentWillUnmount) {
+        if (FormControl.prototype.componentWillUnmount) {
             super.componentWillUnmount();
         }
 
@@ -27,7 +27,7 @@ export default class ValidatedInput extends Input {
     }
 }
 
-ValidatedInput.propTypes = Object.assign({}, Input.propTypes, {
+ValidatedInput.propTypes = Object.assign({}, FormControl.propTypes, {
     name           : React.PropTypes.string.isRequired,
     validationEvent: React.PropTypes.oneOf([
         '', 'onChange', 'onBlur', 'onFocus'
@@ -42,6 +42,6 @@ ValidatedInput.propTypes = Object.assign({}, Input.propTypes, {
     ])
 });
 
-ValidatedInput.defaultProps = Object.assign({}, Input.defaultProps, {
+ValidatedInput.defaultProps = Object.assign({}, FormControl.defaultProps, {
     validationEvent: ''
 });
